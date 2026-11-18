@@ -62,6 +62,24 @@
     "deviations": "偏离",
     "retest_issues": "复检问题",
     "blocked": "阻断项",
-    "status": "状态"
+    "status": "状态",
+    "waived_visits": "终止免除",
+    "terminated_at": "终止日",
+    "reported_by": "报告来源",
+    "confirmed_by": "医生确认",
+    "status_label": "终止状态",
+    "affects_expected": "影响应访",
+    "termination_day": "终止日",
+    "window_start": "窗始日",
+    "gates": "闸门依据",
+    "GATE_PASS": "放行：全部应访完成",
+    "GATE_VISIT_GAP": "阻断：终止前访视缺口",
+    "GATE_RETEST": "阻断：复检问题",
+    "GATE_QUARANTINE": "阻断：采信隔离",
+    "GATE_TERMINATION_CONFIG": "阻断：终止登记配置",
+    "GATE_ROW_BALANCE": "阻断：行守恒不符",
+    "WAIVED_AFTER_TERMINATION": "确认终止后免除",
+    "VERBAL_NOT_WAIVED": "口报未确认不免除",
+    "detail": "原因"
   }
 }

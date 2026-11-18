@@ -208,5 +208,21 @@
     "g/L": "100",
     "毫克/分升": "1"
   },
-  "retest_hours": 72
+  "retest_hours": 72,
+  "terminations": [
+    {
+      "subject": "00018",
+      "status": "CONFIRMED",
+      "terminated_at": "2026-10-12",
+      "reported_by": "中心03 护士站",
+      "confirmed_by": "研究医生 陈晨"
+    },
+    {
+      "subject": "00020",
+      "status": "VERBAL",
+      "terminated_at": "2026-10-16",
+      "reported_by": "中心03 护士站口报",
+      "confirmed_by": ""
+    }
+  ]
 }

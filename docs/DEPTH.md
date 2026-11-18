@@ -29,10 +29,14 @@
 | TRAP-15 | 检验单位换算 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/protocol/rules.py` | `tests/test_protocol.py::test_unit_conversion_real` |
 | TRAP-23 | 访视窗末端 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_half_open_end` |
 | TRAP-11 | UTC日历归一 | 静默错算或证据丢失 | 以可复核规则显式处理 | `app/modules/windows/rules.py` | `tests/test_windows.py::test_utc_day_equivalence` |
+| TRAP-31 | 口报终止提前缩窗 | 把口报当确认，掩盖终止前漏访 | 仅CONFIRMED收缩应访，VERBAL保持应访并页面标注 | `app/modules/deviation/termination.py` | `tests/test_termination.py::test_verbal_termination_never_waives` |
+| TRAP-32 | 终止日窗始边界 | 终止当天误免访视 | 窗始日严格晚于终止日才免除，当天仍应访 | `app/modules/deviation/termination.py` | `tests/test_termination.py::test_window_start_day_still_due_boundary` |
+| TRAP-33 | 重试重复扣减免除 | 重跑后应访数越算越少 | 免除按(受试者,访视)集合去重，裁决幂等 | `app/modules/deviation/termination.py` | `tests/test_termination.py::test_recompute_is_idempotent_no_double_deduction` |
+| TRAP-34 | 规则换代旧锁仍有效 | 旧批号沿用旧结论 | RULE_VERSION进入摘要，版本变化即换批号重算 | `app/manifest.py`,`app/config.py` | `tests/test_termination.py::test_rule_version_invalidates_old_lock` |
 
 ## 对账规则
 
-原始逻辑输入=采纳行+隔离行+空行+重复表头+同值重复。业务计算按 DATA-DICTIONARY.md 分别核验，不能把上级与下级重复加总。所有隔离保留编号、原值、原始行号和稳定原因码。
+原始逻辑输入=采纳行+隔离行+空行+重复表头+同值重复。业务计算按 DATA-DICTIONARY.md 分别核验，不能把上级与下级重复加总。所有隔离保留编号、原值、原始行号和稳定原因码。终止口径额外守恒：受试者数×规定访视数＝应访视＋终止免除访视，免除一次只扣一格且可回溯到医生确认与窗始日。
 
 ## 已知不覆盖
 

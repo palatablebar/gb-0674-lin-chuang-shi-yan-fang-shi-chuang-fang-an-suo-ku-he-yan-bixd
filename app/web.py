@@ -5,6 +5,7 @@ from app.engine import evaluate
 from app import store
 
 templates=Jinja2Templates(directory=str(ROOT/'app/templates'))
+templates.env.globals['code_label']=lambda value: META['labels'].get(value,value)
 
 def render(request:Request,key):
     from app.main import DB_PATH
